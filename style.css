@@ -503,7 +503,7 @@ body.dark .auto-type{
  .city {
       display: none;
     }
-      /*botão do modal*/
+
     .w3-button.w3-black {
    position: relative;
   width: 100%;
@@ -511,7 +511,7 @@ body.dark .auto-type{
   font-size: 32px;
   font-weight: bold;
   color: white;
-  background-image: url('Paisagem\ -\ Manhã.jpg'); /* imagem de fundo principal */
+  background-image: url('images/Paisagem\ -\ Manhã.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -520,17 +520,17 @@ body.dark .auto-type{
   align-items: center;
   border: none;
   cursor: pointer;
-  overflow: hidden; /* impede que a imagem sobreposta ultrapasse os limites */
+  overflow: hidden;
   text-align: center;
   z-index: 1;
     }
 
-   /* Efeito ao passar o mouse */
+
 .w3-button.w3-black:hover {
   background-color: rgba(0, 0, 0, 0.6); /* sobreposição escura */
 }
 
-  /* Texto no centro com fundo escuro levemente transparente */
+
 .w3-button.w3-black span {
   background-color: rgba(0, 0, 0, 0.5);
   padding: 20px 40px;
@@ -543,7 +543,7 @@ body.dark .auto-type{
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url('Paisagem\ -\ Manhã\ Retro01.gif'); /* substitua pelo nome da imagem sobreposta */
+  background-image: url('images/Paisagem\ -\ Manhã\ Retro01.gif'); /* substitua pelo nome da imagem sobreposta */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -553,7 +553,7 @@ body.dark .auto-type{
 }
 
 body.dark .w3-button.w3-black::after {
-  background-image: url('Paisagem\ -\ Manhã\ Light.jpg');
+  background-image: url('images/Paisagem\ -\ Manhã\ Light.jpg');
 }
 
 

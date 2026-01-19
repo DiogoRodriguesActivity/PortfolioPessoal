@@ -40,6 +40,12 @@ body.dark .secao-habilidades {
   text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
 }
 
+.btn-habilidades:hover{
+  transition: 0.5s;
+  font-size: 22px;
+    text-shadow: 10px 10px 3px rgb(0, 0, 0);
+}
+
 /* ========== MODAL DE HABILIDADES ========== */
 .modal-habilidades {
   display: none;
