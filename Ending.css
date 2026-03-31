@@ -6,7 +6,7 @@
 }
 
 body.dark .secao-habilidades {
-  background-color: #faff43;
+  background-color: #c06e6e;
   color: #000;
 }
 
@@ -43,7 +43,7 @@ body.dark .secao-habilidades {
 .btn-habilidades:hover{
   transition: 0.5s;
   font-size: 22px;
-    text-shadow: 10px 10px 3px rgb(0, 0, 0);
+  text-shadow: 4px 4px 8px rgb(0, 0, 0);
 }
 
 /* ========== MODAL DE HABILIDADES ========== */
@@ -58,7 +58,7 @@ body.dark .secao-habilidades {
 }
 
 body.dark .modal-habilidades {
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(192, 192, 192, 0.95);
   color: black;
 }
 
@@ -163,7 +163,7 @@ body.dark .aba-btn:hover {
 }
 
 body.dark .rodape {
-  background-color: #eee;
+  background-color: #a1a1a1;
   color: #000;
 }
 

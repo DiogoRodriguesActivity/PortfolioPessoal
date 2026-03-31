@@ -16,7 +16,7 @@
 
         
         <!-- Área da troca de cor do site -->
-       <header>
+       <header id="cabecario">
   <div id="logo" class="toggle toggle--daynight">
       <label class="switch">
                 <input type="checkbox" id="toggle--daynight" class="toggle--checkbox">
@@ -35,10 +35,10 @@
 
   <nav id="nav-menu">
      <ul id="lista">
-          <li><a id="MainMenu" href="">Sobre mim</a></li>
-           <li><a id="Gotopic" href="">História</a></li>
-           <li><a id="GoComp" href="">Certificações</a></li>
-           <li><a id="GoSaibaMais" href="">Competências</a></li>
+          <li><a id="MainMenu" class="Topicos">Sobre mim</a></li>
+           <li><a id="Gotopic" class="Topicos">História</a></li>
+           <li><a id="GoComp" class="Topicos">Certificações</a></li>
+           <li><a id="GoSaibaMais" class="Topicos">Competências</a></li>
         </ul>
   </nav>
 </header>
@@ -122,6 +122,7 @@
   <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="_blank" class="card">
     <div class="icon-area">
       <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M96 0C60.7 0 32 28.7 32 64l0 384c0 35.3 28.7 64 64 64l288 0c35.3 0 64-28.7 64-64l0-384c0-35.3-28.7-64-64-64L96 0zM208 288l64 0c44.2 0 80 35.8 80 80c0 8.8-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16c0-44.2 35.8-80 80-80zm-32-96a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zM512 80c0-8.8-7.2-16-16-16s-16 7.2-16 16l0 64c0 8.8 7.2 16 16 16s16-7.2 16-16l0-64zM496 192c-8.8 0-16 7.2-16 16l0 64c0 8.8 7.2 16 16 16s16-7.2 16-16l0-64c0-8.8-7.2-16-16-16zm16 144c0-8.8-7.2-16-16-16s-16 7.2-16 16l0 64c0 8.8 7.2 16 16 16s16-7.2 16-16l0-64z"/></svg>
+       <h3>Contato</h3>
     </div>
     <p>Fale comigo para que possamos criar projetos criativos juntos!</p>
   </a>
@@ -154,10 +155,10 @@
       <section class="modal-bloco">
         <img src="images/FotoColegioC.jpg" alt="Foto do Colégio Cotemig" class="imagem-modal">
         <div class="modal-texto">
-          <h3>Colégio e Faculdade Cotemig</h3>
+          <h3>Colégio Cotemig</h3>
           <p><strong>Unidade:</strong> Barroca</p>
           <p><strong>Endereço:</strong> R. Santa Cruz, 546 – Barroca, BH – MG, 30431-228</p>
-          <p>⚪ <strong>Curso Técnica em Programação</strong></p>
+          <p>⚪ <strong>Curso Técnico em Programação</strong></p>
           <p><strong>Período:</strong> Jan. 2023 – Dez. 2025</p>
         </div>
       </section>
@@ -168,7 +169,7 @@
          <section class="modal-bloco">
         <img src="images/brasao-pucminas-versao-2025.png" alt="Foto do Colégio Cotemig" class="imagem-modal">
         <div class="modal-texto">
-          <h3>Faculdade PUC</h3>
+          <h3>Faculdade PUC MG</h3>
           <p><strong>Unidade:</strong> Coração Eucaristico</p>
           <p><strong>Endereço:</strong> R. Dom José Gaspar, 500 - Coração Eucarístico, Belo Horizonte - MG, 30535-901</p>
           <p>⚪ <strong>Engenharia de Software</strong></p>
@@ -184,9 +185,19 @@
 <!-- Botão Me Visite -->
  
 <section class="secao-me-visite" id="GoComp1">
-  <div class="botao-visite" onclick="abrirModalVisite()">
-    <span>Competencias</span>
+  <div class="Slider-content" >
+      <img src="images/CertificadoHardwareCisco.png" alt="">
+      <img src="images/CertificadoBasicoCienciasdeDadosCisco.png" alt="">
+      <img src="images/CertificadoCodeClubCotemig.jpg" alt="">
+      <img src="images/CertificadoHardwareCisco.png" alt="">
   </div>
+    <button class="btn-centro" onclick="abrirModalVisite()">Competencias</button>
+  <div class="dots">
+  <span class="dot active"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
 </section>
 
 <!-- Modal do SlideShow -->

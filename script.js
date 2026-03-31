@@ -172,4 +172,30 @@ function fecharImagemAmpliada() {
   document.getElementById("overlayImagem").style.display = "none";
 }
 
-  /*  Codigo Modal Seção 4 */
+  /*  Codigo Modal Seção 4 (31 de Março de 2026)*/
+
+const box = document.querySelector(".Slider-content")
+const images = document.querySelectorAll(".Slider-content img")
+const dots = document.querySelectorAll(".dot");
+
+let contador = 0;
+
+function slider() {
+  contador++;
+
+  if(contador > images.length - 1){
+    contador = 0; 
+    // vai pegar todo o tamanho da imagem, se estiver no final, volta pro 0
+  }
+  // console.log("oLA")
+  box.style.transform = `translateX(${-contador * 100}%)`;
+    
+  dots.forEach(dot => 
+    dot.classList.remove("active")
+  );
+  dots[contador].classList.add("active");
+}
+
+
+
+setInterval(slider, 2000); /* Acessa uma propriedade para repetir por certo periodo de tempo setInterval (funcao, 2000 Milesimos)*/

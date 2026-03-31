@@ -1,3 +1,45 @@
+@keyframes glow {
+    0% {
+        text-shadow:
+            0 0 5px #00ffff,     /* azul */
+            0 0 10px #00ffff,
+            0 0 20px #00ffff,
+            0 0 40px #00ffff;
+    }
+
+    25% {
+        text-shadow:
+            0 0 10px #00ffcc,    /* azul-esverdeado */
+            0 0 20px #00ffcc,
+            0 0 30px #00ffcc,
+            0 0 50px #00ffcc;
+    }
+
+    50% {
+        text-shadow:
+            0 0 10px #00ff00,    /* verde */
+            0 0 20px #00ff00,
+            0 0 30px #00ff00,
+            0 0 60px #00ff00;
+    }
+
+    75% {
+        text-shadow:
+            0 0 10px #00ffcc,    /* azul-esverdeado */
+            0 0 20px #00ffcc,
+            0 0 30px #00ffcc,
+            0 0 50px #00ffcc;
+    }
+
+    100% {
+        text-shadow:
+            0 0 5px #00ffff,     /* volta ao azul */
+            0 0 10px #00ffff,
+            0 0 20px #00ffff,
+            0 0 40px #00ffff;
+    }
+}
+
 /* === Responsividade e Estilo Geral do Modal === */
 .modal-content-flex {
   display: flex;
@@ -46,12 +88,12 @@
 
 /* Tema Claro (quando adiciona .dark ao body) */
 body.dark .conteudoModal {
-  background-color: #ffffff;
+  background-color: #9b9b9b;
   color: #000000;
 }
 
 body.dark .w3-container.w3-blue {
-  background-color: #e3f2fd;
+  background-color: #9b9b9b;
   color: #0d47a1;
 }
 
@@ -78,60 +120,79 @@ body.dark .modal-bloco hr {
 }
 
 
-/* === Seção Me Visite === */
+/* === Seção Me Visite (31 de Março de 2026) === */
 .secao-me-visite {
   width: 100%;
+  filter: drop-shadow(0px 0px 10px #000); /* Ele me dá uma sombra corretamente para qualquer imagem (melhor que box-shadow)*/
+  overflow: hidden;
+  height: 70vh;
+  position: relative;
   margin: 0;
   padding: 0;
-}
 
-.botao-visite {
-  position: relative;
-  width: 100%;
-  height: 70vh;
-  background-image: url('images/Sem\ títu.png'); /* Substitua pela sua imagem */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform 0.3s ease-in-out;
 }
 
-.botao-visite::before {
-  content: "";
+.Slider-content {
+  display: flex;
+  width: 80%;
+  height: 100%;
+  transition: transform 0.7s ease-in-out;
+}
+
+
+.Slider-content img {
+  min-width: 100%;
+  height: auto; 
+  max-height: 60vh; 
+  object-fit: contain;
+}
+
+.btn-centro {
   position: absolute;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  transition: all 0.5s ease-in-out;
-  z-index: 1;
-}
-
-.botao-visite:hover::before {
-  background-color: rgba(0, 0, 0, 0);
-  transform: scale(1.05);
-}
-
-.botao-visite span {
-  position: relative;
-  z-index: 2;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 16px 32px;
-  font-size: 32px;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.6);
+  transition: 0.5s;
+  background: none;
+  border: none;
+  color: rgb(0, 0, 0);
+  font-size: 24px;
   font-weight: bold;
-  color: #fff;
-  border-radius: 12px;
-  text-shadow: 1px 1px 4px black;
-  transition: background-color 0.3s ease;
+  cursor: pointer;
+
+  animation: glow 6s ease-in-out infinite;
 }
 
-.botao-visite:hover span {
-  background-color: rgba(0, 0, 0, 0.3);
+.btn-centro:hover {
+  transform: translate(-50%, -50%) scale(1.8);
+  animation: glow 2s ease-in-out infinite;
 }
 
+.dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 5px;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.dot.active {
+  opacity: 1;
+}
+
+/* === Seção Me Visite (31 de Março de 2026) === */
 /* === Modal === */
 .modal {
   display: none;
@@ -153,7 +214,7 @@ body.dark .modal-bloco hr {
 }
 
 body.dark .slideshow-modal {
-  background-color: #fff;
+  background-color: #9b9b9b;
   color: #1c1c1c;
 }
 
