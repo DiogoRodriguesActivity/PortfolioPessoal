@@ -17,7 +17,8 @@ body.dark{
 }
 
 body.dark #cabecario{
-  background-color: #c06e6e;
+  transition: 0.5s ease-in-out;
+  background-color: #1b546e;
 }
 
 
@@ -505,8 +506,8 @@ body.dark .auto-type{
       display: none;
     }
 
-    .w3-button.w3-black {
-   position: relative;
+.w3-button.w3-black {
+  position: relative;
   width: 100%;
   height: 80vh;
   font-size: 32px;
