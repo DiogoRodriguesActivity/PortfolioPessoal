@@ -1,8 +1,7 @@
-const checkbox =
-document.getElementById('toggle--daynight');
+const darkM = document.getElementById('light-mode');
 
-checkbox.addEventListener('change', () => {
-    document.body.classList.toggle('dark');
+darkM.addEventListener('change', () => {
+    document.body.classList.toggle('light');
 })
 
 
@@ -134,7 +133,7 @@ document.getElementById('GoSaibaMais').addEventListener('click', function(event)
   /* Codigo do Hamburguer */
 const hamburgerBtn = document.getElementById('hamburger-btn');
 const navMenu = document.getElementById('nav-menu');
-const toggleDark = document.getElementById('toggle--daynight');
+const toggleDark = document.getElementById('Dark-mode');
 
 hamburgerBtn.addEventListener('click', (e) => {
   e.stopPropagation();

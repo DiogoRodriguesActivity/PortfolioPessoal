@@ -1,24 +1,48 @@
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    background-color: #292C35;
+    background-color: var(--background-color);
     font-family: Arial, sans-serif;
-     transition: 0.7s;
-}
-body.dark{
     transition: 0.7s;
-    background-color: #999999;
+  box-sizing: border-box;
+    }
+
+:root{
+  --logo-text-color: #ffffff;
+  --background-color: #ffffff;
+  --text-color: #ffffff;
+  --header-background-color: #292C35;
+  --nav-text-color: #ffffff;
+  --nav-link-hover-color: #ffffff;
+  --card-gradient: linear-gradient(to bottom, #fffc61, #933333);
+  --card-text-color: #ffffff;
+  --hamburguer: #00000050;
+  --imagem-fundo: url('images/Paisagem\ -\ Manhã.jpg');
+}
+body.light{
+  --logo-text-color: #000000;
+  --background-color: #000000;
+  --text-color: #000000;
+  --header-background-color: #5e6d9a;
+  --nav-text-color: #000000;
+  --nav-link-hover-color: #000000;
+  --card-gradient: linear-gradient(to bottom, #808060, #d86262);
+  --card-text-color: #000000;
+   --hamburguer: #d80d0d50;
+     --imagem-fundo: url('images/Paisagem\ -\ Manhã\ Light.jpg');
 }
 
 #cabecario{
+  transition: 0.7s;
   width: 100%;
-  background-color: #292C35;
+  background-color: var(--header-background-color);
   position: fixed;
   z-index: 999;
-}
-
-body.dark #cabecario{
-  transition: 0.5s ease-in-out;
-  background-color: #1b546e;
 }
 
 
@@ -49,7 +73,7 @@ body.dark #cabecario{
 }
 
 #nav-menu a {
-  color: white;
+  color: var(--nav-text-color);
   text-decoration: none;
   font-weight: bold;
   font-size: 18px;
@@ -59,7 +83,7 @@ body.dark #cabecario{
 
 
 #nav-menu a:hover {
-  color: #2ea3a3;
+  color: var(--nav-link-hover-color);
 }
 
 
@@ -82,7 +106,7 @@ body.dark #cabecario{
 .Shiny-text {
     font-size: 36px;
     font-weight: bold;
-    color: #ffffff;
+    color: var(--logo-text-color);
     /* Ajuste do tempo */
     animation: glow 6s ease-in-out infinite;
     /* fim do Ajuste do tempo */
@@ -146,7 +170,7 @@ header {
   align-items: center;
   flex-wrap: wrap;
   padding: 10px 20px;
-  background-color: #011f269d;
+  background-color: var(--header-background-color);
   color: white;
   position: relative;
 }
@@ -163,14 +187,14 @@ header {
   background: none;
   border: none;
   cursor: pointer;
-  background-color: #00000050;
+  background-color: var(--hamburguer);
   border-radius: 5px;
 }
 .hamburger span {
   display: block;
   height: 5px;
   width: 95%;
-  background: white;
+  background: var(--nav-text-color);
   border-radius: 3px;
   transition: 0.3s;
 }
@@ -199,7 +223,7 @@ header {
     top: 60px;
     right: 20px;
     flex-direction: column;
-    background: #292C35;
+    background: var(--nav-background-color);
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.3);
@@ -230,10 +254,6 @@ header {
 
 }
 
-*::before,
-*::after {
-  box-sizing: border-box;
-}
 
 
 /* 2) Toggle: centralizar e ser contêiner relativo */
@@ -280,7 +300,7 @@ header {
 }
 
 /* Tamanho do botão */
-.toggle--daynight .toggle--btn {
+.light-mode .toggle--btn {
   position: relative;
   height: 60px;
   width: 100px;
@@ -290,7 +310,7 @@ header {
 }
 
 /* Tamanho e posição da lua e do sol */
-.toggle--daynight .toggle--btn::before {
+.light-mode .toggle--btn::before {
   position: absolute;
   top: 5px;
   left: 5px;
@@ -303,7 +323,7 @@ header {
 /*Fim do Tamanho e posição da lua e do sol */
 
 /* NUVEM */
-.toggle--daynight .toggle--btn::after {
+.light-mode .toggle--btn::after {
   position: absolute;
   top: 65%;
   left: 48px;
@@ -445,59 +465,7 @@ header {
 }
 
 /* === Dark MODE NO MODAL === */
-body.dark .conteudoModal {
-  background-color: #1c1c1c;
-  color: #ffffff;
-}
 
-body.dark .w3-container.w3-blue {
-  background-color: #000000;
-  border-bottom: 2px solid #555;
-}
-
-body.dark .tablink {
-  background-color: #2c2c2c !important;
-  color: #ffffff !important;
-}
-
-body.dark .tablink:hover,
-body.dark .tablink.w3-light-grey {
-  background-color: #444 !important;
-  color: #00ffff !important;
-}
-
-body.dark .w3-button.w3-black {
-  background-color: #333;
-  color: #fff;
-}
-
-body.dark .w3-button.w3-black:hover {
-  background-color: #555;
-}
-
-body.dark .imagem-lateral {
-  border-color: #0066ff;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
-}
-
-body.dark .w3-display-topright:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-body.dark .w3-button.w3-white {
-  background-color: #222;
-  color: #fff;
-  border-color: #444;
-}
-
-body.dark .w3-button.w3-white:hover {
-  background-color: #333;
-  border-color: #555;
-}
-
-body.dark .auto-type{
-    color: rgb(0, 0, 0);
-  }
 /*Fim do Dark Mode*/
 
 
@@ -513,8 +481,9 @@ body.dark .auto-type{
   font-size: 32px;
   font-weight: bold;
   color: white;
-  background-image: url('images/Paisagem\ -\ Manhã.jpg');
+  background-image: var(--imagem-fundo);
   background-size: cover;
+  transition: 0.7s ease-in-out;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
@@ -552,10 +521,6 @@ body.dark .auto-type{
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
   z-index: 1;
-}
-
-body.dark .w3-button.w3-black::after {
-  background-image: url('images/Paisagem\ -\ Manhã\ Light.jpg');
 }
 
 
@@ -762,19 +727,11 @@ body.dark .w3-button.w3-black::after {
 /* Dark Mode */
 
 
-body:not(.dark-mode) .card:hover {
+body:not(.light-mode) .card:hover {
   filter: brightness(115%);
   cursor: pointer;
   transform: scale(1.1);
 }
 
-body.dark-mode .card {
-  background: linear-gradient(to bottom, #444, #111);
-  color: #fff;
-}
-
-body.dark-mode .card:hover {
-  filter: brightness(85%);
-}
 /* fim do Card */
 
