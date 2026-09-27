@@ -14,7 +14,7 @@ body {
 
 :root{
   --logo-text-color: #ffffff;
-  --background-color: #ffffff;
+  --background-color: #352d3d;
   --text-color: #ffffff;
   --header-background-color: #292C35;
   --nav-text-color: #ffffff;
@@ -26,12 +26,12 @@ body {
 }
 body.light{
   --logo-text-color: #000000;
-  --background-color: #000000;
+  --background-color: #5844a0;
   --text-color: #000000;
   --header-background-color: #5e6d9a;
   --nav-text-color: #000000;
   --nav-link-hover-color: #000000;
-  --card-gradient: linear-gradient(to bottom, #808060, #d86262);
+  --card-gradient: linear-gradient(to top, #c2ce3b, #913030);
   --card-text-color: #000000;
    --hamburguer: #d80d0d50;
      --imagem-fundo: url('images/Paisagem\ -\ Manhã\ Light.jpg');
@@ -689,18 +689,29 @@ header {
   gap: 2rem;
   flex-wrap: wrap;
   max-width: 1000px;
+  
 }
 
 .card {
-  background: linear-gradient(to bottom, #fffc61, #933333);
-  color: #000;
+  position: relative;
   width: 380px;
   padding: 80px 20px;
   text-align: center;
   border-radius: 10px;
   border: 2px solid black;
+  background: var(--card-gradient);
+  color: var(--card-text-color);
   text-decoration: none;
-  transition: 0.3s ease;
+  overflow: hidden;
+  z-index: 1;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Conteúdo do card fica acima do efeito */
+.card > * {
+  position: relative;
+  z-index: 2;
 }
 
 .card .icon-area {
@@ -727,11 +738,70 @@ header {
 /* Dark Mode */
 
 
-body:not(.light-mode) .card:hover {
-  filter: brightness(115%);
-  cursor: pointer;
-  transform: scale(1.1);
+.card:hover {
+    cursor: pointer;
+  transform: scale(1.05);
+
+  box-shadow:
+    0 0 10px rgba(0, 255, 255, 0.4),
+    0 0 25px rgba(0, 255, 255, 0.25);
 }
+
+
+.card::before {
+  content: "";
+  position: absolute;
+
+  inset: -2px;
+
+  border-radius: inherit;
+
+  background: conic-gradient(
+    from 0deg,
+    #00ffff 0deg,
+    #00ffff 70deg,
+    #00ffff 120deg,
+    #00ff88 160deg,
+    #8800ff88 220deg,
+    #00ff88 360deg
+  );
+
+  opacity: 0;
+
+  z-index: -1;
+
+  animation: border-animation-card 6s linear infinite;
+
+  transition: opacity 1s ease;
+}
+
+/* Mostra a borda somente no hover */
+.card:hover::before {
+  opacity: 1;
+}
+
+/* Cria o interior do card por cima da borda */
+.card::after {
+  content: "";
+
+  position: absolute;
+  inset: 3px;
+  border-radius: 20px;
+  background: var(--card-gradient);
+  z-index: -1;
+}
+
+
+@keyframes border-animation-card {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 
 /* fim do Card */
 
