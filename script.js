@@ -57,8 +57,13 @@ const descricoes = [
 ];
 
 function mostrarSlide(n) {
-  if (n >= slides.length) slideIndex = 0;
-  if (n < 0) slideIndex = slides.length - 1;
+  if (n >= slides.length){
+    slideIndex = 0;
+  }
+  
+  if (n < 0) {
+    slideIndex = slides.length - 1;
+  }
 
   for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
@@ -133,7 +138,7 @@ document.getElementById('GoSaibaMais').addEventListener('click', function(event)
   /* Codigo do Hamburguer */
 const hamburgerBtn = document.getElementById('hamburger-btn');
 const navMenu = document.getElementById('nav-menu');
-const toggleDark = document.getElementById('Dark-mode');
+
 
 hamburgerBtn.addEventListener('click', (e) => {
   e.stopPropagation();
@@ -148,9 +153,6 @@ document.addEventListener('click', (e) => {
   }
 });
 
-toggleDark.addEventListener('change', () => {
-  document.body.classList.toggle('dark', toggleDark.checked);
-});
 
   /* Codigo do Hamburguer */
   /*  Codigo Modal Seção 4 */
@@ -186,7 +188,7 @@ function slider() {
     contador = 0; 
     // vai pegar todo o tamanho da imagem, se estiver no final, volta pro 0
   }
-  // console.log("oLA")
+  console.log("oLA")
   box.style.transform = `translateX(${-contador * 100}%)`;
     
   dots.forEach(dot => 

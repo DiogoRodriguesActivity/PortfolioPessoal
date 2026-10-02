@@ -1,7 +1,18 @@
 /* ========== SEÇÃO DE HABILIDADES ========== */
+
+:root{
+  --habil-fundo: #1c1c1c;
+  --text-cor: rgb(255, 255, 255);
+}
+body.light{
+  --habil-fundo: #535688 ;
+  --text-cor: rgb(0, 0, 0);
+}
+
+
 .secao-habilidades {
-  background-color: #1c1c1c;
-  color: white;
+  background-color: var(--habil-fundo);
+  color: var(--text-cor);
   padding: 250px 60px;
 }
 
@@ -37,14 +48,35 @@ body.dark .secao-habilidades {
   border: none;
   color: inherit;
   cursor: pointer;
+  transition: 1s ease-in-out;
   text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
 }
 
+.btn-habilidades::after{
+  content:"";
+  display: block;
+  height: 5px;
+  width: 10%;
+  background-color: gold;
+  transition: 1.5s ease-in-out;
+}
+
 .btn-habilidades:hover{
-  transition: 0.5s;
-  font-size: 22px;
+  transition: 1s ease-in-out;
+  transform: scale(1.1);
+
   text-shadow: 4px 4px 8px rgb(0, 0, 0);
 }
+
+.btn-habilidades:hover::after{
+  content:"";
+  display: block;
+  height: 5px;
+  width: 100%;
+  transition: 1.5s ease-in-out;
+  background-color: gold;
+}
+
 
 /* ========== MODAL DE HABILIDADES ========== */
 .modal-habilidades {
