@@ -23,6 +23,15 @@ body {
   --card-text-color: #ffffff;
   --hamburguer: #00000050;
   --imagem-fundo: url('images/Paisagem\ -\ Manhã.jpg');
+  --card-hover: conic-gradient(
+    from 0deg,
+    #e2e60d 0deg,
+    #00ffff 70deg,
+    #00ffff 120deg,
+    #00ff88 160deg,
+    #c5b52288 220deg,
+    #00ff88 360deg
+  );
 }
 body.light{
   --logo-text-color: #000000;
@@ -35,10 +44,20 @@ body.light{
   --card-text-color: #000000;
    --hamburguer: #d80d0d50;
      --imagem-fundo: url('images/Paisagem\ -\ Manhã\ Light.jpg');
+     --card-hover: conic-gradient(
+      from 0deg,
+      #b8a400 0deg,
+      #008b8b 70deg,
+      #008b8b 120deg,
+      #009e52 160deg,
+      #8a7b0066 220deg,
+      #009e52 360deg
+    );
 }
 
 #cabecario{
   transition: 0.7s;
+  padding: 10px;
   width: 100%;
   background-color: var(--header-background-color);
   position: fixed;
@@ -88,13 +107,14 @@ body.light{
 
 
 .Topicos {
+  font-family: "Commissioner", sans-serif;
   cursor: pointer;
   transform: scale(1);
   transition: transform 0.3s ease;
 }
 
 .Topicos:hover {
-  transform: scale(1.2); 
+  transform: scale(1.1); 
 }
 
 
@@ -211,8 +231,12 @@ header {
 /* Ajustes do X */
 
 /* MOBILE */
-@media (max-width: 768px) {
-  
+@media (max-width: 900px) {
+
+
+  #cabecario{
+    padding: 0px;
+  }
   .hamburger {
     display: flex;
     z-index: 1000;
@@ -251,6 +275,7 @@ header {
     flex-direction: column;
     gap: 15px;
   }
+
 
 }
 
@@ -700,7 +725,7 @@ header {
   border-radius: 10px;
   border: 2px solid black;
   background: var(--card-gradient);
-  color: var(--card-text-color);
+  color: black;
   text-decoration: none;
   overflow: hidden;
   z-index: 1;
@@ -756,15 +781,7 @@ header {
 
   border-radius: inherit;
 
-  background: conic-gradient(
-    from 0deg,
-    #00ffff 0deg,
-    #00ffff 70deg,
-    #00ffff 120deg,
-    #00ff88 160deg,
-    #8800ff88 220deg,
-    #00ff88 360deg
-  );
+  background: var(--card-hover);
 
   opacity: 0;
 
