@@ -100,6 +100,18 @@ body.light{
   display: inline-block;
 }
 
+.Topicos::after {
+ content: '';
+ display: block;
+ background-color: red;
+ height: 2px;
+ width: 0%;
+ transition: 0.5s ease;
+}
+.Topicos:hover::after {
+  width: 100%;
+  transition: 0.5s ease;
+ }
 
 #nav-menu a:hover {
   color: var(--nav-link-hover-color);
