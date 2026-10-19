@@ -200,3 +200,11 @@ function slider() {
 
 
 setInterval(slider, 2000); /* Acessa uma propriedade para repetir por certo periodo de tempo setInterval (funcao, 2000 Milesimos)*/
+
+window.addEventListener("blur", () => {
+  document.title = "Até breve ✌️";
+});
+
+window.addEventListener("focus", () => {
+  document.title = "Diogo.Rodrigues";
+});
