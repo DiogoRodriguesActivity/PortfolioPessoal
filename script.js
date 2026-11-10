@@ -5,44 +5,177 @@ darkM.addEventListener('change', () => {
 })
 
 
- /*Codigo para o Modal (com as abas)*/
-    
- // Ativa a primeira aba por padrão
-   document.getElementsByClassName("tablink")[0].click();
+/* Modal Sobre Mim */
+const aboutDialog = document.getElementById('about-dialog');
 
-    function openCity(evt, cityName) {
-      var i, x, tablinks;
-      x = document.getElementsByClassName("city");
-      for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablink");
-      for (i = 0; i < x.length; i++) {
-        tablinks[i].classList.remove("w3-light-grey");
-      }
-      document.getElementById(cityName).style.display = "block";
-      evt.currentTarget.classList.add("w3-light-grey");
+const openAboutDialogButton = document.getElementById('open-about-dialog');
+const closeAboutDialogButton = aboutDialog.querySelector('.about-dialog-close');
+
+const aboutTabs = [...aboutDialog.querySelectorAll('[role="tab"]')];
+
+function activateAboutTab(tab) {
+  aboutTabs.forEach((currentTab) => {
+    const isSelected = currentTab === tab;
+    const panel = document.getElementById(currentTab.getAttribute('aria-controls'));
+
+    currentTab.setAttribute('aria-selected', String(isSelected));
+    currentTab.tabIndex = isSelected ? 0 : -1;
+    panel.hidden = !isSelected;
+  });
+}
+
+openAboutDialogButton.addEventListener('click', () => {
+  aboutDialog.classList.remove('closing');
+  document.body.classList.add('modal-open');
+  aboutDialog.showModal();
+});
+
+function closeAboutDialog() {
+  if (aboutDialog.open && !aboutDialog.classList.contains('closing')) {
+    aboutDialog.classList.add('closing');
+  }
+}
+
+closeAboutDialogButton.addEventListener('click', closeAboutDialog);
+
+aboutDialog.addEventListener('click', (event) => {
+  if (event.target === aboutDialog) {
+    closeAboutDialog();
+  }
+});
+
+aboutDialog.addEventListener('cancel', (event) => {
+  event.preventDefault();
+  closeAboutDialog();
+});
+
+aboutDialog.addEventListener('animationend', (event) => {
+  if (event.target === aboutDialog && event.animationName === 'about-dialog-out') {
+    aboutDialog.close();
+  }
+});
+
+function updateModalScrollLock() {
+  document.body.classList.toggle('modal-open', Boolean(document.querySelector('dialog[open]')));
+}
+
+aboutDialog.addEventListener('close', () => {
+  aboutDialog.classList.remove('closing');
+  updateModalScrollLock();
+});
+
+const emailLink = document.getElementById('copy-email');
+const copyToast = document.getElementById('copy-toast');
+let copyToastTimer;
+
+function showCopyToast(message) {
+  copyToast.textContent = message;
+  copyToast.classList.add('visible');
+  clearTimeout(copyToastTimer);
+  copyToastTimer = setTimeout(() => copyToast.classList.remove('visible'), 2000);
+}
+
+function copyTextFallback(text) {
+  const field = document.createElement('textarea');
+  field.value = text;
+  field.setAttribute('readonly', '');
+  field.style.position = 'fixed';
+  field.style.opacity = '0';
+  document.body.appendChild(field);
+  field.select();
+
+  try {
+    return document.execCommand('copy');
+  } catch {
+    return false;
+  } finally {
+    field.remove();
+  }
+}
+
+emailLink.addEventListener('click', async (event) => {
+  event.preventDefault();
+  const email = emailLink.textContent.trim();
+  let copied = false;
+
+  try {
+    if (navigator.clipboard) {
+      await navigator.clipboard.writeText(email);
+      copied = true;
+    } else {
+      copied = copyTextFallback(email);
+    }
+  } catch {
+    copied = copyTextFallback(email);
+  }
+
+  showCopyToast(copied ? 'Email copiado' : 'Não foi possível copiar o email');
+});
+
+aboutTabs.forEach((tab, index) => {
+  tab.addEventListener('click', () => activateAboutTab(tab));
+  tab.addEventListener('keydown', (event) => {
+    let nextIndex;
+
+    if (event.key === 'ArrowRight') {
+      nextIndex = (index + 1) % aboutTabs.length;
+    } else if (event.key === 'ArrowLeft') {
+      nextIndex = (index - 1 + aboutTabs.length) % aboutTabs.length;
+    } else if (event.key === 'Home') {
+      nextIndex = 0;
+    } else if (event.key === 'End') {
+      nextIndex = aboutTabs.length - 1;
+    } else {
+      return;
     }
 
-    function closeOnOutsideClick(event, modalId) {
-      var modal = document.getElementById(modalId);
-      if (event.target === modal) {
-        modal.style.display = "none";
-      }
-    }
-/*Fim do Codigo para o Modal (com as abas)*/
+    event.preventDefault();
+    aboutTabs[nextIndex].focus();
+    activateAboutTab(aboutTabs[nextIndex]);
+  });
+});
+/* Fim do Modal Sobre Mim */
 
 /*Efeito no Texto*/
  
 /*Efeito no Texto*/
 
-function abrirModalEscolas() {
-    document.getElementById('modalEscolas').style.display = 'block';
-  }
+const schoolsDialog = document.getElementById('modalEscolas');
+const closeSchoolsDialogButton = schoolsDialog.querySelector('.school-dialog-close');
 
-  function fecharModalEscolas() {
-    document.getElementById('modalEscolas').style.display = 'none';
+function abrirModalEscolas() {
+  schoolsDialog.classList.remove('closing');
+  document.body.classList.add('modal-open');
+  schoolsDialog.showModal();
+}
+
+function fecharModalEscolas() {
+  if (schoolsDialog.open && !schoolsDialog.classList.contains('closing')) {
+    schoolsDialog.classList.add('closing');
   }
+}
+
+closeSchoolsDialogButton.addEventListener('click', fecharModalEscolas);
+
+schoolsDialog.addEventListener('click', (event) => {
+  if (event.target === schoolsDialog) fecharModalEscolas();
+});
+
+schoolsDialog.addEventListener('cancel', (event) => {
+  event.preventDefault();
+  fecharModalEscolas();
+});
+
+schoolsDialog.addEventListener('animationend', (event) => {
+  if (event.target === schoolsDialog && event.animationName === 'about-dialog-out') {
+    schoolsDialog.close();
+  }
+});
+
+schoolsDialog.addEventListener('close', () => {
+  schoolsDialog.classList.remove('closing');
+  updateModalScrollLock();
+});
 
 
   /*Slide Show*/

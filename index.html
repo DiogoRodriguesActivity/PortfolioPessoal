@@ -50,55 +50,80 @@
     <!-- Fim do cabeçario -->
 
       <!-- Inicio do Modal Sobre Mim -->
-        <section id="MainMenu1">
-                <div class="w3-container">
-    <!--Botão do Modal-->
-    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">
-  <span>Sobre mim</span>
-</button>
+      <section id="MainMenu1">
+        <button
+          type="button"
+          id="open-about-dialog"
+          class="about-open-button"
+          aria-haspopup="dialog"
+          aria-controls="about-dialog"
+        >
+          <span>Sobre mim</span>
+        </button>
 
-    <!-- Modal -->
-    <div id="id01" class="w3-modal" onclick="closeOnOutsideClick(event, 'id01')">
-      <div class="conteudoModal" onclick="event.stopPropagation()">
-        <!-- Aba Azul -->
-        <header class="w3-container w3-blue">
-          <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-blue w3-xlarge w3-display-top">&times;</span>
-    
-        </header>
+        <dialog id="about-dialog" class="about-dialog" aria-labelledby="about-dialog-title">
+          <header class="about-dialog-header">
+           
+            <button type="button" class="about-dialog-close" aria-label="Fechar janela">
+              &times;
+            </button>
+          </header>
 
-        <!-- Abas -->
-        <div class="w3-bar w3-border-bottom">
-          <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'London')"> <h4>Quem sou eu</h4></button>
-          <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'Paris')"><h4>Localização</h4></button>
-        
-        </div>
-
-        <!-- Aba Sobre mim -->
-        <div id="London" class="w3-container city">
-          <div class="conteudo-london">
-            <img src="images/FotoPerfil.jpg" alt="Foto Diogo" class="imagem-lateral" />
-            <div class="texto-london">
-              <h1>Diogo, 18 anos <span class="auto-type"></span></h1>
-              <p>Como um programador iniciante, anseio a evolução a cada dia, sempre buscando ser melhor. Estou à procura de oportunidades que me permitam desenvolver ainda mais minhas habilidades e expandir ainda mais meus conhecimentos.</p>
-            </div>
+          <div class="about-tabs" role="tablist" aria-label="Informações sobre mim">
+            <button
+              type="button"
+              id="about-tab-profile"
+              class="about-tab"
+              role="tab"
+              aria-controls="about-panel-profile"
+              aria-selected="true"
+              tabindex="0"
+            >
+              Quem sou eu
+            </button>
+            <button
+              type="button"
+              id="about-tab-location"
+              class="about-tab"
+              role="tab"
+              aria-controls="about-panel-location"
+              aria-selected="false"
+              tabindex="-1"
+            >
+              Localização
+            </button>
           </div>
-        </div>
 
-        <!-- Aba Localização -->
-        <div id="Paris" class="w3-container city">
-          <h1>Belo Horizonte - MG</h1>
-          <p>Email: DiogoRodriguesTwo@gmail.com</p>
-          
-        </div>
+          <section
+            id="about-panel-profile"
+            class="about-panel"
+            role="tabpanel"
+            aria-labelledby="about-tab-profile"
+            tabindex="0"
+          >
+            <div class="about-profile">
+              <img src="images/FotoPerfil.jpg" alt="Foto de Diogo" class="about-profile-image">
+              <div>
+                <h3>Diogo, 19 anos <span class="auto-type"></span></h3>
+                <p>Como um programador iniciante, anseio a evolução a cada dia, sempre buscando ser melhor. Estou à procura de oportunidades que me permitam desenvolver ainda mais minhas habilidades e expandir ainda mais meus conhecimentos.</p>
+              </div>
+            </div>
+          </section>
 
-
-        <!-- Rodapé -->
-        
-      </div>
-       <!-- Fim Abas-->
-    </div>
-  </div>
-        </section>
+          <section
+            id="about-panel-location"
+            class="about-panel"
+            role="tabpanel"
+            aria-labelledby="about-tab-location"
+            tabindex="0"
+            hidden
+          >
+            <h3>Belo Horizonte - MG</h3>
+            <p>Email: <a id="copy-email" href="mailto:DiogoRodriguesTwo@gmail.com">DiogoRodriguesTwo@gmail.com</a></p>
+          </section>
+          <div id="copy-toast" class="copy-toast" role="status" aria-live="polite" aria-atomic="true"></div>
+        </dialog>
+      </section>
 
 
       <!-- fim do Modal Sobre Mim -->
@@ -134,10 +159,10 @@
  <!-- fim dos Cards -->
 <!-- Modal das Escolas -->
 
-<div id="modalEscolas" class="w3-modal" onclick="fecharModalEscolas()">
-  <div class="conteudoModal" onclick="event.stopPropagation()">
+<dialog id="modalEscolas" class="about-dialog school-dialog" aria-label="Escolas requisitadas">
+  <div class="conteudoModal">
     <header class="w3-container w3-blue">
-      <span onclick="fecharModalEscolas()" class="w3-display-top">&times;</span>
+      <button type="button" class="w3-display-top school-dialog-close" aria-label="Fechar janela">&times;</button>
     </header>
 
     <div class="w3-container modal-content-flex">
@@ -181,8 +206,7 @@
         </div>
       </section>
     </div>
-  </div>
-</div>
+  </dialog>
 
 <!-- Seção 3-->
 
@@ -352,4 +376,3 @@
 
 </body>
 </html>
-
